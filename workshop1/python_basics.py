@@ -4,6 +4,7 @@ MDST Workshop 1 - Python Basics Starter Code
 
 # Add any imports you need here:
 import random
+import base64
 
 def part1(num):
     """
@@ -51,7 +52,19 @@ def part3(string):
     or not. (A palindrome is a string that reads the same forwards and
     backwards.)
     """
-    
+    word = list(string)
+    palindrome = True
+    for i in range(len(word)):
+        if (word[i]!=word[len(word)-i-1]):
+            palindrome = False
+            break
+
+    if (palindrome == False):
+        print ("The word is not a palindrome")
+    else:
+        print ("The word is a palindrome")
+
+            
 
 
 def part4a(filename, username, password):
@@ -60,6 +73,9 @@ def part4a(filename, username, password):
     Store your encrypted username on the first line and your encrypted password
     on the second line.
     """
+    
+
+
 
 def part4b(filename, password=None):
     """
