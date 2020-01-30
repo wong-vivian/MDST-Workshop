@@ -73,7 +73,19 @@ def part4a(filename, username, password):
     Store your encrypted username on the first line and your encrypted password
     on the second line.
     """
-    
+    """ message = "Python is fun"
+    message_bytes = message.encode('ascii')
+    base64_bytes = base64.b64encode(message_bytes)
+    base64_message = base64_bytes.decode('ascii')
+    """
+    with open (filename , 'w') as file:
+        file.write(username+"\n")
+        password = str.encode(password)
+        temp = base64.b64encode(password)
+        password = temp.decode ("utf-8")
+        file.write(password)
+        
+
 
 
 
@@ -83,6 +95,16 @@ def part4b(filename, password=None):
     Print out the decrypted username and password.
     If a password is specified, update the file with the new password.
     """
+    username = ""
+    passwd = ""
+
+    with open(filename,'r') as file:
+        username = file.readline()
+        passwd = file.readline()
+    b = base64.b64decode((passwd))
+    passwd = b.decode("utf-8")
+    print(username)
+    print(passwd)
 
 
 if __name__ == "__main__":
